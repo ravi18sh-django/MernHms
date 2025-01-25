@@ -7,13 +7,17 @@ const adminRoutes = require('./routes/adminRoutes');
 const PORT = process.env.PORT || 8000;
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, // Dynamic frontend URL based on .env file (if needed)
+  origin: process.env.FRONTEND_URL,  // Ensure this matches your frontend URL
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
+  credentials: true, // Allow credentials if you're sending cookies or authorization headers
 };
 
 // Enable CORS
 app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
 // Middleware
 app.use(express.json());
@@ -23,7 +27,7 @@ app.use('/api/admin', adminRoutes); // Mount Admin Routes
 
 // Root Route
 app.get('/', (req, res) => {
-  res.send(`Welcome to the API! ${process.env.FRONTEND_URL}`); // Respond with a custom message
+  res.send('Welcome to the API!');  // Custom message for the root route
 });
 
 // Test API Route
