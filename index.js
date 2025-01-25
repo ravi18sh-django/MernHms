@@ -12,7 +12,7 @@ const corsOptions = {
   allowedHeaders: 'Content-Type,Authorization',
 };
 
-console.log('Allowed Frontend URL:', process.env.FRONTEND_URL);
+
 
 // Enable CORS
 app.use(cors(corsOptions));
@@ -22,6 +22,13 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/admin', adminRoutes);  // Mount Admin Routes
+
+
+app.get('/', (req, res) => {
+  console.log('Allowed Frontend URL:', process.env.FRONTEND_URL);
+  res.send('Hello');
+});
+
 
 // Test API Route
 app.get('/ping', (req, res) => {
