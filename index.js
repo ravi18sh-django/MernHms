@@ -7,7 +7,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const PORT = process.env.PORT || 8000;
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL,  // Ensure this matches your frontend URL
+  origin: process.env.FRONTEND_URL.trim(),  // Remove any trailing slash or spaces
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials: true, // Allow credentials if you're sending cookies or authorization headers
@@ -27,7 +27,7 @@ app.use('/api/admin', adminRoutes); // Mount Admin Routes
 
 // Root Route
 app.get('/', (req, res) => {
-  res.send('Welcome to the API!');  // Custom message for the root route
+  res.send('Welcome to the API!');
 });
 
 // Test API Route
