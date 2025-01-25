@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
-require('./Models/db');  // Your database connection
+require('./Models/db'); // Your database connection
 const adminRoutes = require('./routes/adminRoutes');
 const PORT = process.env.PORT || 8000;
 
@@ -12,8 +12,6 @@ const corsOptions = {
   allowedHeaders: 'Content-Type,Authorization',
 };
 
-
-
 // Enable CORS
 app.use(cors(corsOptions));
 
@@ -21,14 +19,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // API Routes
-app.use('/api/admin', adminRoutes);  // Mount Admin Routes
+app.use('/api/admin', adminRoutes); // Mount Admin Routes
 
-
+// Root Route
 app.get('/', (req, res) => {
-  console.log('Allowed Frontend URL:', process.env.FRONTEND_URL);
-  res.send('Hello');
+  res.send(`Welcome to the API! ${process.env.FRONTEND_URL}`); // Respond with a custom message
 });
-
 
 // Test API Route
 app.get('/ping', (req, res) => {
