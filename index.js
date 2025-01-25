@@ -12,6 +12,8 @@ const corsOptions = {
   allowedHeaders: 'Content-Type,Authorization',
 };
 
+console.log('Allowed Frontend URL:', process.env.FRONTEND_URL);
+
 // Enable CORS
 app.use(cors(corsOptions));
 
