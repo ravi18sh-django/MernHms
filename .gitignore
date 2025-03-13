@@ -29,3 +29,4 @@ dist/
 # Other files to ignore
 *.env
 *.local
+"config/djangoapp-237705-8f6d7fe225dd.json" 
