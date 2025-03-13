@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "scripts": {
+  "start": "NODE_OPTIONS=--openssl-legacy-provider node server.js"
+},
+
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
