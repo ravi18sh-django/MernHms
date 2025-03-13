@@ -1,6 +1,6 @@
 # Node.js dependencies
 node_modules/
-config/djangoapp-237705-8f6d7fe225dd
+
 # Environment variables
 .env
 
