@@ -6,6 +6,7 @@ const Clinic = require("../Models/Clinic");
 router.post("/", async (req, res) => {
   try {
     const { name, address, contact } = req.body;
+    console.log('clininc body',req.body)
     const clinic = new Clinic({ name, address, contact });
     await clinic.save();
     res.status(201).json(clinic);

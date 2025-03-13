@@ -7,9 +7,9 @@ const router = express.Router();
 // ✅ Create a new doctor
 router.post("/", verifyAdmin, async (req, res) => {
     try {
-      const { name, specialization, contact, email, clinic, patients } = req.body;
+      const { name, specialization, contact, email, address,clinic } = req.body;
   
-      const newDoctor = new Doctor({ name, specialization, contact, email, clinic, patients });
+      const newDoctor = new Doctor({ name, specialization, contact, email, address,clinic });
       await newDoctor.save();
   
       const response = {  // ✅ Rename from `res` to `response`
